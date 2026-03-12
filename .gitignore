@@ -42,4 +42,6 @@ next-env.d.ts
 
 # vibe coding
 spec.md
-/design
+
+# design
+design/
