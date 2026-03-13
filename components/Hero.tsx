@@ -48,7 +48,7 @@ export default function Hero() {
           </button>
 
           <button
-            onClick={() => document.getElementById('speaking')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('advisory')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full md:w-auto px-[20px] py-[12px] bg-white text-[#1d1d1d] font-inter font-semibold text-lg hover:bg-zinc-200 transition-colors whitespace-nowrap"
           >
             Speaking Engagements

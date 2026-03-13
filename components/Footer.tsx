@@ -1,79 +1,119 @@
-import Link from "next/link";
 import Image from "next/image";
 
-export default function Footer() {
+const socialLinks = [
+  {
+    href: "https://www.instagram.com/",
+    alt: "Instagram",
+    src: "/skill-icons_instagram.png",
+  },
+  {
+    href: "https://www.facebook.com/",
+    alt: "Facebook",
+    src: "/logos_facebook.png",
+  },
+  {
+    href: "https://www.linkedin.com/",
+    alt: "LinkedIn",
+    src: "/skill-icons_linkedin.png",
+  },
+  {
+    href: "mailto:contact@sarisuperconnector.com",
+    alt: "Email",
+    src: "/logos_google-gmail.png",
+  },
+];
+
+const Footer = () => {
   return (
-    <footer className="border-t border-zinc-200 bg-[#f5f5f5] pt-16 pb-12 px-[16px] md:px-[80px]">
-      <div className="flex flex-col lg:flex-row justify-between gap-12">
-        
-        {/* Left Side: Branding and Contact */}
-        <div className="w-full md:w-1/2 flex flex-col items-start gap-6">
-          <div className="text-[32px] md:text-[40px] text-[#1d1d1d] font-signature">
-            Sari Kusumaningrum
+    <footer id="connect" className="bg-[#f5f5f5] pt-16 pb-12 px-[16px] md:px-[80px] border-t border-zinc-200">
+      <div className="flex flex-col gap-12 md:flex-row md:items-start justify-between">
+        <div className="space-y-6 md:w-[45%]">
+          <div className="flex flex-col gap-4">
+            <p className="text-3xl md:text-4xl font-signature text-[#1d1d1d]">Sari Kusumaningrum</p>
+            <div className="flex items-center gap-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.alt}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={link.alt}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full"
+                >
+                  <Image
+                    src={link.src}
+                    alt={link.alt}
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </a>
+              ))}
+            </div>
           </div>
-          
-          <div className="flex items-center gap-4">
-            {/* Social Icons Placeholders */}
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold">IG</div>
-            <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold">FB</div>
-            <div className="w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center text-white text-xs font-bold">IN</div>
-            <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-xs font-bold">GM</div>
-          </div>
-          
-          <div className="text-[15px] text-[#1d1d1d] max-w-[400px] leading-relaxed font-medium">
-            For strategic advisory, speaking invitations, and institutional collaborations:
-            <br />
-            <a href="mailto:contact@sarisuperconnector.com" className="underline hover:text-zinc-600 transition-colors mt-1 block">
+
+          <div className="space-y-2">
+            <p className="text-base leading-relaxed text-zinc-600">
+              For strategic advisory, speaking invitations, and institutional collaborations:
+            </p>
+            <a
+              href="mailto:contact@sarisuperconnector.com"
+              className="inline-block text-base font-semibold text-[#1d1d1d] underline"
+            >
               contact@sarisuperconnector.com
             </a>
           </div>
-          
-          <div className="text-sm text-[#1d1d1d] font-medium mt-4">
-            Sari Kusumaningrum &copy; 2026
-          </div>
+
+          <p className="text-sm text-zinc-500">Sari Kusumaningrum © 2026</p>
         </div>
 
-        {/* Right Side: Newsletter */}
-        <div className="w-full lg:w-3/5 flex flex-col items-start lg:items-end gap-6 pt-16 md:pt-0">
-          <div className="w-full max-w-[650px] flex flex-col items-start">
-            <h2 className="text-[32px] md:text-[38px] font-bold text-[#1d1d1d] tracking-tight mb-4">
-              Join Me on the journey
-            </h2>
-            
-            <form className="w-full flex flex-col gap-4">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <input 
-                  type="text" 
-                  placeholder="First name" 
-                  className="w-full bg-transparent border border-zinc-300 px-4 py-2.5 text-[14px] focus:outline-none focus:border-zinc-500 placeholder:text-zinc-400"
-                />
-                <input 
-                  type="text" 
-                  placeholder="Last name" 
-                  className="w-full bg-transparent border border-zinc-300 px-4 py-2.5 text-[14px] focus:outline-none focus:border-zinc-500 placeholder:text-zinc-400"
-                />
-                <input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  className="w-full bg-transparent border border-zinc-300 px-4 py-2.5 text-[14px] focus:outline-none focus:border-zinc-500 placeholder:text-zinc-400"
-                />
-                
-                {/* Empty columns for spacing on desktop */}
-                <div className="hidden sm:block sm:col-span-2"></div>
-                
-                {/* Button aligned under Email field */}
-                <button 
-                  type="submit" 
-                  className="w-full bg-[#333333] hover:bg-black text-white px-8 py-2.5 text-[15px] font-medium transition-colors"
-                >
-                  Join
-                </button>
-              </div>
+        <div className="md:w-[45%]">
+          <div>
+            <h2 className="text-3xl font-bold text-[#1d1d1d]">Join Me on the journey</h2>
+            <form className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <label className="sr-only" htmlFor="firstName">
+                First name
+              </label>
+              <input
+                id="firstName"
+                name="firstName"
+                placeholder="First name"
+                className="h-12 border border-zinc-200 bg-white px-4 text-sm placeholder:text-zinc-400 focus:border-[#1d1d1d] focus:outline-none"
+              />
+
+              <label className="sr-only" htmlFor="lastName">
+                Last name
+              </label>
+              <input
+                id="lastName"
+                name="lastName"
+                placeholder="Last name"
+                className="h-12 border border-zinc-200 bg-white px-4 text-sm placeholder:text-zinc-400 focus:border-[#1d1d1d] focus:outline-none"
+              />
+
+              <label className="sr-only" htmlFor="email">
+                Email address
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Email Address"
+                className="col-span-1 md:col-span-2 lg:col-span-1 h-12 border border-zinc-200 bg-white px-4 text-sm placeholder:text-zinc-400 focus:border-[#1d1d1d] focus:outline-none"
+              />
+
+              <button
+                type="submit"
+                className="col-span-full mt-2 w-full bg-[#1d1d1d] px-6 py-3 text-lg font-medium text-white transition hover:bg-zinc-800"
+              >
+                Join
+              </button>
             </form>
           </div>
         </div>
-
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
