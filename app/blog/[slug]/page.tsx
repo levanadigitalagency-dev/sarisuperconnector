@@ -35,20 +35,21 @@ export default function ArticleDetailPage() {
       sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
+
   return (
     <main className="min-h-screen bg-[#f5f5f5] font-inter text-[#1d1d1d]">
       <Navbar />
       
       {/* Header Section */}
-      <article className="pt-32 px-6 md:px-[80px]">
-        <div className="max-w-[900px]">
-          <h1 className="text-4xl md:text-[60px] font-semibold leading-[1.15] mb-[10px] tracking-tight">
+      <article className="pt-32 px-[16px] md:px-[80px]">
+        <div className="max-w-[900px] mx-auto lg:mx-0">
+          <h1 className="text-4xl md:text-[60px] font-semibold leading-[1.15] mb-[10px] tracking-tight text-center lg:text-left">
             How to run a successful business with your partner
           </h1>
-          <p className="text-base font-normal text-zinc-700 leading-relaxed mb-[10px]">
+          <p className="text-base font-normal text-zinc-700 leading-relaxed mb-[10px] text-center lg:text-left">
             Lorem ipsum dolor sit amet consectetur. Nulla nunc ornare pellentesque quam. Tincidunt nisl ut lectus commodo semper a condimentum nec. Ultricies libero eget et auctor phasellus quam suspendisse nunc. Neque nulla vel tortor posuere faucibus quis a nunc.
           </p>
-          <div className="text-base font-medium text-[#1d1d1d] mb-[35px]">
+          <div className="text-base font-medium text-[#1d1d1d] mb-[35px] text-center lg:text-left">
             March 20, 2026
           </div>
         </div>
@@ -67,35 +68,35 @@ export default function ArticleDetailPage() {
         {/* Content Section */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-[85px] mb-24 relative items-start">
           
-          {/* Sidebar */}
-          <aside className="w-full lg:w-[250px] shrink-0 sticky top-32">
+          {/* Sidebar - Desktop Only */}
+          <aside className="hidden lg:block w-full lg:w-[250px] shrink-0 lg:sticky lg:top-32">
             <div className="flex flex-col gap-y-[10px] text-[18px] font-semibold">
               <Link href="#introduction" 
                 className={`flex items-center gap-2 transition-colors ${activeSection === 'introduction' ? 'text-[#1d1d1d]' : 'text-zinc-500 hover:text-[#1d1d1d]'}`}
                 onClick={(e) => { e.preventDefault(); document.getElementById('introduction')?.scrollIntoView({ behavior: 'smooth' }); }}
               >
-                {activeSection === 'introduction' && <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
+                {activeSection === 'introduction' && <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
                 Introduction
               </Link>
               <Link href="#conclusion" 
                 className={`flex items-center gap-2 transition-colors ${activeSection === 'conclusion' ? 'text-[#1d1d1d]' : 'text-zinc-500 hover:text-[#1d1d1d]'}`}
                 onClick={(e) => { e.preventDefault(); document.getElementById('conclusion')?.scrollIntoView({ behavior: 'smooth' }); }}
               >
-                {activeSection === 'conclusion' && <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
+                {activeSection === 'conclusion' && <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
                 Conclusion
               </Link>
               <Link href="#rekomendasion" 
                 className={`flex items-center gap-2 transition-colors ${activeSection === 'rekomendasion' ? 'text-[#1d1d1d]' : 'text-zinc-500 hover:text-[#1d1d1d]'}`}
                 onClick={(e) => { e.preventDefault(); document.getElementById('rekomendasion')?.scrollIntoView({ behavior: 'smooth' }); }}
               >
-                {activeSection === 'rekomendasion' && <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
+                {activeSection === 'rekomendasion' && <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
                 Rekomendasion
               </Link>
             </div>
           </aside>
 
           {/* Prose Content */}
-          <div className="flex-1 max-w-[800px] prose prose-zinc prose-a:text-[#1d1d1d]">
+          <div className="flex-1 max-w-[800px] mx-auto lg:mx-0 prose prose-zinc prose-a:text-[#1d1d1d]">
             <section id="introduction" className="mb-[35px] scroll-mt-32">
               <h2 className="text-[44px] font-semibold text-[#1d1d1d] mb-[10px] leading-tight">Introduction</h2>
               <p className="text-zinc-700 leading-relax mb-6">
@@ -140,6 +141,9 @@ export default function ArticleDetailPage() {
 
         {/* Related Articles */}
         <div className="mb-24">
+          <h2 className="text-[32px] md:text-[44px] font-semibold text-[#1d1d1d] mb-[35px] text-center lg:text-left">
+            Recommended Articles
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px] gap-y-[35px]">
             {relatedPosts.map((post, index) => (
               <Link href={`/blog/${post.slug}`} key={index} className="group block">

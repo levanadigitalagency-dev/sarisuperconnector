@@ -22,7 +22,7 @@ export default function Hero() {
       </div>
 
       {/* Right Column: Content */}
-      <div className="flex space-y-10 w-full md:w-[60%] flex-col items-center justify-center px-6 py-16 md:px-[60px] lg:px-[80px] text-center order-2 md:order-2 z-10 bg-[#1d1d1d] md:bg-transparent">
+      <div className="flex space-y-10 w-full md:w-[60%] flex-col items-center justify-center px-[16px] py-16 md:px-[60px] lg:px-[80px] text-center order-2 md:order-2 z-10 bg-[#1d1d1d] md:bg-transparent">
 
         <div>
           <h1 className="text-[32px] md:text-[48px] lg:text-[60px] font-bold text-white leading-[1.1] mb-3.75 tracking-tight">

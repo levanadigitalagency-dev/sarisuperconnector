@@ -17,7 +17,7 @@ export default function BlogPage() {
     <main className="min-h-screen bg-[#f5f5f5] pb-24 font-inter text-[#1d1d1d]">
       <Navbar />
       
-      <div className="pt-32 px-6 md:px-[80px]">
+      <div className="pt-32 px-[16px] md:px-[80px] mb-[80px]">
         <div className="mb-12">
           <h1 className="text-4xl md:text-[60px] font-semibold mb-[10px] tracking-tight">Articles</h1>
           <p className="text-[#1d1d1d] font-normal max-w-[902px] text-base leading-relaxed mb-8">
