@@ -1,9 +1,5 @@
 export const aboutContent = {
-  title: "Who I Am",
-  imageSrc: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  imageAlt: "About Me",
-  imageWidth: 512,
-  imageHeight: 558,
+  title: "About Sari Kusumaningrum",
   paragraphs: [
     "I operate at the intersection of corporate leadership, international diplomacy, and strategic communication.",
     "As Senior Director of Corporate Communications & PR at Archipelago International — Southeast Asia's largest privately owned hotel management company — I lead reputation strategy across a multi-brand hospitality ecosystem.",

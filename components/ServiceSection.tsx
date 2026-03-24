@@ -1,7 +1,6 @@
 import React from 'react'
-import Image from 'next/image'
 
-interface ServiceSection {
+interface ServiceSectionItem {
   heading: string
   description: string
   items?: string[]
@@ -9,54 +8,51 @@ interface ServiceSection {
 
 interface ServiceSectionProps {
   title?: string
-  imageSrc?: string
-  imageAlt?: string
-  imageWidth?: number
-  imageHeight?: number
-  sections: ServiceSection[]
+  subtitle?: string
+  sections: ServiceSectionItem[]
 }
+
+const accentBorders = ['border-orange-300', 'border-rose-300', 'border-amber-300', 'border-red-300']
 
 const ServiceSection: React.FC<ServiceSectionProps> = ({
   title = 'What I do',
-  imageSrc,
-  imageAlt = 'Services',
-  imageWidth = 600,
-  imageHeight = 512,
+  subtitle = 'I operate at the intersection of corporate leadership, international diplomacy, and strategic communication.',
   sections,
 }) => {
   return (
-    <div className='flex flex-col md:flex-row flex-col-reverse' id='services'>
-        <div className={`w-full ${imageSrc ? 'md:w-[55%]' : ''} px-[16px] py-16 md:pl-[80px] md:pr-[60px] text-[#1d1d1d] flex flex-col justify-center`} id='servicestext'>
-            <h1 className='text-4xl font-bold mb-8'>{title}</h1>
-            <div className='space-y-8'>
-                {sections?.map((section, idx) => (
-                  <div key={idx} className={idx === 1 ? '' : ''}>
-                    <h2 className='text-xl font-bold mb-2'>{section.heading}</h2>
-                    <p className='mb-3'>{section.description}</p>
-                    {section.items && section.items.length > 0 && (
-                      <ul className='list-disc list-inside space-y-1'>
-                        {section.items.map((item, itemIdx) => (
-                          <li key={itemIdx}>{item}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ))}
-            </div>
-        </div>
-        {imageSrc && (
-          <div className='w-full md:w-[45%] flex items-center justify-end' id='servicesimage'>
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              width={imageWidth}
-              height={imageHeight}
-              className='object-cover w-full h-[300px] md:h-full'
-              unoptimized
-            />
+    <section id='services' className='bg-[#f5f5f5] py-20'>
+      <div className='mx-auto max-w-5xl px-4'>
+        <h2 className='font-mono text-2xl md:text-3xl font-bold text-[#e63946] mb-6'>
+          {title}
+        </h2>
+        <p className='font-sans text-sm text-gray-500 mb-10'>{subtitle}</p>
+
+        <div className='rounded-2xl bg-slate-100 p-6 md:p-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6'>
+            {sections?.slice(0, 3).map((section, idx) => (
+              <article
+                key={idx}
+                className={`bg-white p-6 rounded-lg shadow-sm transition-shadow duration-200 hover:shadow-md border-t-4 ${accentBorders[idx % accentBorders.length]}`}
+              >
+                <h3 className='font-mono text-lg font-semibold text-gray-800 mb-3'>
+                  {section.heading}
+                </h3>
+                <p className='font-sans text-sm text-gray-600 leading-relaxed mb-3'>
+                  {section.description}
+                </p>
+                {section.items && section.items.length > 0 && (
+                  <ul className='font-sans text-sm text-gray-600 leading-relaxed list-disc list-inside space-y-1'>
+                    {section.items.map((item, itemIdx) => (
+                      <li key={itemIdx}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            ))}
           </div>
-        )}
-    </div>
+        </div>
+      </div>
+    </section>
   )
 }
 

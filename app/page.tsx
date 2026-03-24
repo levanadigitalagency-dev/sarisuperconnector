@@ -20,19 +20,12 @@ export default function Home() {
       <Hero />
       <AboutSection
         title={aboutContent.title}
-        imageSrc={aboutContent.imageSrc}
-        imageAlt={aboutContent.imageAlt}
-        imageWidth={aboutContent.imageWidth}
-        imageHeight={aboutContent.imageHeight}
         paragraphs={aboutContent.paragraphs}
       />
       <div className='hidden md:block h-16'></div>
       <ServiceSection
         title={serviceContent.title}
-        imageSrc={serviceContent.imageSrc}
-        imageAlt={serviceContent.imageAlt}
-        imageWidth={serviceContent.imageWidth}
-        imageHeight={serviceContent.imageHeight}
+        subtitle={serviceContent.subtitle}
         sections={serviceContent.sections}
       />
       <LeadershipRoles

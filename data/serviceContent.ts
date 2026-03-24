@@ -1,9 +1,6 @@
 export const serviceContent = {
   title: "What I do",
-  imageSrc: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  imageAlt: "Services",
-  imageWidth: 512,
-  imageHeight: 512,
+  subtitle: "I operate at the intersection of corporate leadership, international diplomacy, and strategic communication.",
   sections: [
     {
       heading: "Corporate Reputation & Strategic Communications",
