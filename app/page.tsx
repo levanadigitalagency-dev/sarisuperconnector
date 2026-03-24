@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import HeroBottomSection from "@/components/HeroBottomSection";
 import AboutSection from "@/components/AboutSection";
 import LeadershipRoles from "@/components/LeadershipRoles";
 import AdvisorySection from "@/components/advisorySection";
@@ -18,6 +19,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#f5f5f5] font-inter">
       <Navbar />
       <Hero />
+      <HeroBottomSection />
       <AboutSection
         title={aboutContent.title}
         paragraphs={aboutContent.paragraphs}
